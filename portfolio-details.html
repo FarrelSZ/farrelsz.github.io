@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,10 +6,6 @@
     <title>Portfolio Details - SnapFolio Bootstrap Template</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-
-    <!-- Favicons -->
-    <!-- <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" /> -->
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -29,13 +25,234 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- =======================================================
-  * Template Name: SnapFolio
-  * Template URL: https://bootstrapmade.com/snapfolio-bootstrap-portfolio-template/
-  * Updated: Jul 21 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <style>
+      /* ===== Demo Account Note Styles ===== */
+      .demo-account-note {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(229, 160, 13, 0.35);
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-top: 36px;
+        margin-bottom: 8px;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      }
+
+      .demo-account-note::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(229, 160, 13, 0.12) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .demo-account-note::after {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        left: -40px;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(83, 128, 255, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .demo-note-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .demo-note-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(229, 160, 13, 0.15);
+        border: 1px solid rgba(229, 160, 13, 0.4);
+        color: #e5a00d;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        padding: 4px 12px;
+        border-radius: 30px;
+      }
+
+      .demo-note-badge i {
+        font-size: 12px;
+      }
+
+      .demo-note-title {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .demo-note-subtitle {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        margin-bottom: 22px;
+        line-height: 1.6;
+      }
+
+      .demo-note-subtitle a {
+        color: #5380ff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .demo-note-subtitle a:hover {
+        text-decoration: underline;
+      }
+
+      .demo-credentials-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 576px) {
+        .demo-credentials-grid {
+          grid-template-columns: 1fr;
+        }
+        .demo-account-note {
+          padding: 22px 20px;
+        }
+      }
+
+      .demo-credential-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 14px 16px;
+        position: relative;
+        transition: border-color 0.2s ease;
+      }
+
+      .demo-credential-card:hover {
+        border-color: rgba(229, 160, 13, 0.3);
+      }
+
+      .demo-credential-label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .demo-credential-label i {
+        font-size: 11px;
+      }
+
+      .demo-credential-value {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .demo-credential-text {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "Courier New", Courier, monospace;
+        letter-spacing: 0.3px;
+        word-break: break-all;
+      }
+
+      .demo-copy-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        border-radius: 6px;
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        padding: 4px 8px;
+        font-size: 12px;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+      }
+
+      .demo-copy-btn:hover {
+        background: rgba(229, 160, 13, 0.2);
+        color: #e5a00d;
+      }
+
+      .demo-copy-btn.copied {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+      }
+
+      .demo-note-warning {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(229, 160, 13, 0.07);
+        border-left: 3px solid #e5a00d;
+        border-radius: 0 8px 8px 0;
+        padding: 10px 14px;
+        margin-top: 16px;
+      }
+
+      .demo-note-warning i {
+        color: #e5a00d;
+        font-size: 14px;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+
+      .demo-note-warning p {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 12.5px;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .demo-note-warning p strong {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .demo-divider {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        margin: 20px 0;
+      }
+
+      .demo-role-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(83, 128, 255, 0.15);
+        border: 1px solid rgba(83, 128, 255, 0.3);
+        color: #8aabff;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+    </style>
   </head>
 
   <body class="portfolio-details-page">
@@ -57,31 +274,6 @@
             <li>
               <a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a>
             </li>
-            <!-- <li>
-              <a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a>
-            </li>
-            <li class="dropdown">
-              <a href="#"
-                ><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span>
-                <i class="bi bi-chevron-down toggle-dropdown"></i
-              ></a>
-              <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown">
-                  <a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li> -->
             <li>
               <a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a>
             </li>
@@ -172,6 +364,107 @@
                 </ul>
               </div>
             </div>
+
+            <!-- ===== DEMO ACCOUNT NOTE ===== -->
+            <div class="demo-account-note" data-aos="fade-up" data-aos-delay="350">
+              <div class="demo-note-header">
+                <span class="demo-note-badge">
+                  <i class="bi bi-info-circle-fill"></i>
+                  Demo Access
+                </span>
+              </div>
+
+              <h4 class="demo-note-title">Akun Demo</h4>
+              <hr class="demo-divider" />
+
+              <!-- Admin Account -->
+              <p
+                style="
+                  color: rgba(255, 255, 255, 0.6);
+                  font-size: 12px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 10px;
+                "
+              >
+                <i class="bi bi-shield-lock-fill" style="color: #e5a00d; margin-right: 5px"></i>
+                Akun Admin
+                <span class="demo-role-tag"><i class="bi bi-star-fill"></i> Full Access</span>
+              </p>
+              <div class="demo-credentials-grid">
+                <div class="demo-credential-card">
+                  <div class="demo-credential-label"><i class="bi bi-envelope-fill"></i> Email</div>
+                  <div class="demo-credential-value">
+                    <span class="demo-credential-text" id="admin-email">admintes@gmail.com</span>
+                    <button class="demo-copy-btn" onclick="copyText('admin-email', this)" title="Copy email">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="demo-credential-card">
+                  <div class="demo-credential-label"><i class="bi bi-key-fill"></i> Password</div>
+                  <div class="demo-credential-value">
+                    <span class="demo-credential-text" id="admin-pass">admin123</span>
+                    <button class="demo-copy-btn" onclick="copyText('admin-pass', this)" title="Copy password">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="demo-divider" />
+
+              <!-- Cashier Account -->
+              <!-- <p
+                style="
+                  color: rgba(255, 255, 255, 0.6);
+                  font-size: 12px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 10px;
+                "
+              >
+                <i class="bi bi-person-badge-fill" style="color: #5380ff; margin-right: 5px"></i>
+                Akun Kasir
+                <span
+                  class="demo-role-tag"
+                  style="background: rgba(83, 128, 255, 0.15); border-color: rgba(83, 128, 255, 0.3); color: #8aabff"
+                >
+                  <i class="bi bi-person-fill"></i> Cashier Role
+                </span>
+              </p>
+              <div class="demo-credentials-grid">
+                <div class="demo-credential-card">
+                  <div class="demo-credential-label"><i class="bi bi-envelope-fill"></i> Email</div>
+                  <div class="demo-credential-value">
+                    <span class="demo-credential-text" id="cashier-email">kasir@demo.com</span>
+                    <button class="demo-copy-btn" onclick="copyText('cashier-email', this)" title="Copy email">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="demo-credential-card">
+                  <div class="demo-credential-label"><i class="bi bi-key-fill"></i> Password</div>
+                  <div class="demo-credential-value">
+                    <span class="demo-credential-text" id="cashier-pass">kasir123</span>
+                    <button class="demo-copy-btn" onclick="copyText('cashier-pass', this)" title="Copy password">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-note-warning">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <p>
+                  <strong>Catatan:</strong> Akun demo dibatasi untuk keperluan demonstrasi. Mohon tidak mengubah
+                  password atau menghapus data yang sudah ada. Masalah registrasi akan segera diperbaiki.
+                </p>
+              </div> -->
+            </div>
+            <!-- ===== END DEMO ACCOUNT NOTE ===== -->
 
             <div class="col-lg-12">
               <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
@@ -371,13 +664,7 @@
             © <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span>
           </p>
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
+        <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a></div>
       </div>
     </footer>
 
@@ -403,5 +690,38 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Demo Copy Script -->
+    <script>
+      function copyText(elementId, btn) {
+        const text = document.getElementById(elementId).textContent.trim();
+        navigator.clipboard
+          .writeText(text)
+          .then(function () {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+            btn.classList.add("copied");
+            setTimeout(function () {
+              btn.innerHTML = originalHTML;
+              btn.classList.remove("copied");
+            }, 2000);
+          })
+          .catch(function () {
+            // Fallback for older browsers
+            const el = document.createElement("textarea");
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand("copy");
+            document.body.removeChild(el);
+            btn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+            btn.classList.add("copied");
+            setTimeout(function () {
+              btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+              btn.classList.remove("copied");
+            }, 2000);
+          });
+      }
+    </script>
   </body>
 </html>
